@@ -1,76 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 body {
-    font-family: 'Kanit', sans-serif;
-    max-width: 800px;
+    font-family: 'Poppins', sans-serif;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    background: linear-gradient(to right, #f8f9fa, #e9ecef);
-    color: #333;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* ฟอร์มบล็อก */
-.blog-form {
-    background: white;
+/* Glassmorphism Effect */
+.blog-form, .blog-post {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
     padding: 25px;
-    border-radius: 12px;
+    border-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.blog-form:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+.blog-form:hover, .blog-post:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* Form Inputs */
 .blog-form input[type="text"],
 .blog-form textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    border: none;
+    border-radius: 8px;
     font-size: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    color: #fff;
     transition: all 0.3s ease;
+}
+
+.blog-form input[type="text"]::placeholder,
+.blog-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .blog-form input[type="text"]:focus,
 .blog-form textarea:focus {
-    border-color: #4caf50;
-    box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
     outline: none;
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.blog-form textarea {
-    height: 160px;
-    resize: vertical;
-}
-
-/* โพสต์บล็อก */
-.blog-post {
-    background: white;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.blog-post:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
+/* Post Content */
 .blog-title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
-    color: #222;
+    color: #fff;
 }
 
 .blog-date {
-    color: #777;
+    color: rgba(255, 255, 255, 0.8);
     font-size: 0.9em;
     margin-bottom: 12px;
     display: block;
@@ -78,31 +72,27 @@ body {
 
 .blog-content {
     line-height: 1.8;
-    margin-bottom: 15px;
-    color: #444;
+    color: #f0f0f0;
 }
 
-/* ปุ่ม */
-.blog-actions {
-    text-align: right;
-    margin-top: 15px;
-}
-
+/* Button Styling - Neumorphism */
 button {
-    padding: 10px 18px;
-    margin-left: 10px;
+    padding: 12px 20px;
+    margin: 10px 5px;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.4), -8px -8px 20px rgba(255, 255, 255, 0.15);
 }
 
 .btn-submit {
@@ -120,20 +110,23 @@ button:hover {
     color: white;
 }
 
-/* ปรับแต่งปุ่มเมื่อ hover */
-.btn-submit:hover {
-    background: #388e3c;
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.btn-edit:hover {
-    background: #1565c0;
+.blog-form, .blog-post {
+    animation: fadeIn 0.8s ease-in-out;
 }
 
-.btn-delete:hover {
-    background: #c62828;
-}
-
-/* ซ่อนองค์ประกอบ */
+/* Hide elements */
 .hidden {
     display: none;
 }
